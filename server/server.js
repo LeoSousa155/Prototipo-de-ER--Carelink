@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const formidable = require('express-formidable');
 const cors = require('cors');
@@ -18,10 +20,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/submit', (req, res) => {
-    const { name, password } = req.fields;
     console.log('Request Body:', req.fields);
-    //console.log('Dados recebidos:', { name, password });
-    //return a response type
+
     res.json({ message: 'Dados recebidos com sucesso!' });
   });
 

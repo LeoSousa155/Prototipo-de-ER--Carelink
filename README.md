@@ -9,3 +9,8 @@ Entre na pasta `/client` e execute o comando`npm install` para instalar as depen
 
 ### Backend
 Entre na pasta `/server` e execute o comando `npm install` para instalar as dependencias e depois `npm run start` para iniciar o servidor na porta 5000
+
+### Base de dados
+A base de dados é `SQLite` e a biblioteca usada foi adicionada ao `Node 22.5.0`, portanto é necessário ter uma versão igual ou superior para executar o servidor.
+
+Ao executar o servidor a base de dados será criada com o nome `carelink.sqlite`
