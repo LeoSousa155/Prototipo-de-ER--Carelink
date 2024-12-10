@@ -5,7 +5,7 @@
 
 ## comandos de inicialização do projeto
 ### Frontend
-Entre na pasta `/client` e execute o comando``npm install` para instalar as dependencias e depois `npm run start` para iniciar o cliente na porta 3000
+Entre na pasta `/client` e execute o comando`npm install` para instalar as dependencias e depois `npm run start` para iniciar o cliente na porta 3000
 
 ### Backend
 Entre na pasta `/server` e execute o comando `npm install` para instalar as dependencias e depois `npm run start` para iniciar o servidor na porta 5000
