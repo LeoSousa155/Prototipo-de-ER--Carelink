@@ -3,7 +3,7 @@ import { InputField } from '../components/InputField';
 import styles from '../styles/LoginForm.module.css';
 import { useNavigate } from 'react-router-dom';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,7 +19,7 @@ export const LoginForm = () => {
     }
     try {
       // Send the form data to the server
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:5000/register', {
         method: 'POST',
         body: formData,
       });
@@ -47,17 +47,18 @@ export const LoginForm = () => {
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/eacea02d161c6313a230d93f8ac8af830a57c784304b18f53569b7eb321289ab?placeholderIfAbsent=true&apiKey=5903daf91f7a4a1096d1d46ef291cb79"
             className={styles.logo}
             alt="CareLink logo"
-            onClick={() => {navigate("/")}}
+            onClick={() => { navigate("/")}}
           />
           <h1 className={styles.title}>CareLink</h1>
           <p className={styles.subtitle}>
-            Conectando Você à Saúde, Onde e Quando Precisar
+            Formulário de registo
           </p>
           
           <form onSubmit={handleSubmit} className={styles.form}>
             <InputField
               label="Nome"
               id="fullName"
+              type="text"
               placeholder="Nome Completo"
             />
             <InputField
@@ -66,25 +67,26 @@ export const LoginForm = () => {
               type="password"
               placeholder="Senha"
             />
+            <InputField
+              label="Medico"
+              id="isDoctor"
+              type="checkbox"
+            />
             
-            <a href="#" className={styles.forgotPassword}>
-              Esqueceu sua senha?
-            </a>
-            
-            <button type="submit" className={styles.submitButton}>
-              <span>Entrar</span>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/15fdd6c445e84f0ec2360f5cca18d4c5f8850db595d378f7916082a97e115148?placeholderIfAbsent=true&apiKey=5903daf91f7a4a1096d1d46ef291cb79"
-                className={styles.buttonIcon}
-                alt=""
-              />
-            </button>
+          <button type="submit" className={styles.submitButton}>
+            <span>Registar</span>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/15fdd6c445e84f0ec2360f5cca18d4c5f8850db595d378f7916082a97e115148?placeholderIfAbsent=true&apiKey=5903daf91f7a4a1096d1d46ef291cb79"
+              className={styles.buttonIcon}
+              alt=""
+            />
+          </button>
           </form>
           
           <p className={styles.signupText}>
-            <span className={styles.signupLabel}>Não tem conta?</span>
+            <span className={styles.signupLabel}>Já tem conta?</span>
             {" "}
-            <a onClick={()=> {navigate("/register")}} className={styles.signupLink}>Cadastre-se</a>
+            <a onClick={()=>{ navigate("/login")}} className={styles.signupLink}>voltar</a>
           </p>
         </div>
       </div>
