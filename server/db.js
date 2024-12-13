@@ -68,19 +68,32 @@ function insertNewEvent(subject, day, month, pessoa_id) {
 
 function searchPatientByID(id) {
     const query = database.prepare(`SELECT * FROM Person WHERE id = ?`);
-    console.log(query.get(id));
+    return query.get(id);
 }
 
 
 function searchDoctorByID(id) {
     const query = database.prepare(`SELECT * FROM Person WHERE id = ?`);
-    console.log(query.get(id));
+    return query.get(id);
 }
 
 
 function searchEventByID(id) {
     const query = database.prepare(`SELECT * FROM Event WHERE id = ?`);
-    console.log(query.get(id));
+    return query.get(id);    
+}
+
+function doesNameExist(name) {
+    //returns a boolean if the name exists in the table
+    const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
+    const nameInTable = query.get(name);
+    return nameInTable != undefined;
+}
+
+function searchPersonByName(name) {
+    //returns a boolean if the name exists in the table
+    query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
+    return query.get(name);
 }
 
 
@@ -108,7 +121,8 @@ module.exports = {
     searchPatientByID,
     searchDoctorByID,
     searchEventByID,
-}
+    doesNameExist
+};
 
 //este código é executado apenas quando o ficheiro é executado diretamente
 if (typeof require !== 'undefined' && require.main === module) {

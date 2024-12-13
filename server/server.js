@@ -27,19 +27,26 @@ app.get('/', (req, res) => {
 app.post("/register", (req,res) => {
   const formData = req.fields;
   console.log("Post Body: ", formData);
-  console.log(typeof(formData.fullName))
-  if(req.fields.isDoctor) {
+ 
+
+  if(db.doesNameExist(formData.fullName)) {
+    res.sendStatus(409); //código de conflito
+    console.log("Tentando inserir um nome já existente");
+    return;
+  }
+
+  if(formData.isDoctor === 'on') {
     db.insertNewDoctor(formData.fullName, null, formData.password);
   } else {
     db.insertNewPatient(formData.fullName, null, formData.password);
   }
-  
+  res.sendStatus(200);
 });
 
 
 app.post('/login', (req, res) => {
   console.log('Request Body:', req.fields);
-  res.json({ message: 'Dados recebidos com sucesso!' });
+  res.sendStatus(200);
 });
 
 const PORT = 5000;

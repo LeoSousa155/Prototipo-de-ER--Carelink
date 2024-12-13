@@ -26,8 +26,7 @@ export const RegisterForm = () => {
 
       // Check the server response
       if (response.ok) {
-        const data = await response.json();
-        console.log('Form submitted successfully:', data);
+        navigate("/login");
       } else {
         console.error('Error submitting form:', response.statusText);
       }
