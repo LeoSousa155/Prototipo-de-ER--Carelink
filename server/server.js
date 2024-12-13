@@ -27,19 +27,44 @@ app.get('/', (req, res) => {
 app.post("/register", (req,res) => {
   const formData = req.fields;
   console.log("Post Body: ", formData);
-  console.log(typeof(formData.fullName))
-  if(req.fields.isDoctor) {
+ 
+
+  if(db.doesNameExist(formData.fullName)) {
+    res.sendStatus(409); //código de conflito
+    console.log("Tentando inserir um nome já existente");
+    return;
+  }
+
+  if(formData.isDoctor === 'on') {
     db.insertNewDoctor(formData.fullName, null, formData.password);
   } else {
     db.insertNewPatient(formData.fullName, null, formData.password);
   }
-  
+  res.sendStatus(200);
 });
 
 
 app.post('/login', (req, res) => {
-  console.log('Request Body:', req.fields);
-  res.json({ message: 'Dados recebidos com sucesso!' });
+  const formData = req.fields;
+  console.log('Request Body:', formData);
+
+  const person = db.searchPersonByName(formData.fullName);
+
+  if(person == undefined) {
+    res.sendStatus(404);
+  }
+
+  if(person.password != formData.password) {
+    res.sendStatus(401);
+  }
+
+  if(db.searchDoctorByID(person.id) != undefined) {
+    console.log("Redirecionando para a página do paciente");
+    res.json({ path: "/patient/home"});
+  } else {
+    console.log("Redirecionando para a página do médico");
+    res.json({ path: "/doctor/home"});
+  }
 });
 
 const PORT = 5000;

@@ -1,16 +1,14 @@
-import React from 'react';
+import {React, useEffect } from 'react';
 import { InputField } from '../components/InputField';
 import styles from '../styles/LoginForm.module.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // Collect form data
     const form = e.target;
     const formData = new FormData(form);
-
 
     // Display the key/value pairs
     for (var pair of formData.entries())
@@ -26,12 +24,18 @@ export const LoginForm = () => {
 
       // Check the server response
       if (response.ok) {
-        const data = await response.json();
-        console.log('Form submitted successfully:', data);
-      } else {
+        const route = await response.json();
+        console.log("Rota de login: ", route.path);
+        navigate(route.path);
+      } 
+      else if (response.status == 404 || response.status == 401) {
+        alert("Usuário ou senha incorretos");
+      } 
+      else {
         console.error('Error submitting form:', response.statusText);
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Network error:', error);
     }
   };
@@ -84,7 +88,7 @@ export const LoginForm = () => {
           <p className={styles.signupText}>
             <span className={styles.signupLabel}>Não tem conta?</span>
             {" "}
-            <a onClick={()=> {navigate("/register")}} className={styles.signupLink}>Cadastre-se</a>
+            <a onClick={()=> {navigate("/register")}} className={styles.signupLink}>Registe-se</a>
           </p>
         </div>
       </div>

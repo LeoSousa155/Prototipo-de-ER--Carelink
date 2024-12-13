@@ -1,0 +1,95 @@
+.calendarContainer {
+    background: var(--Grays-White, #fff);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    padding: 1px 0 221px;
+  }
+  
+  .header {
+    background-color: rgba(102, 216, 177, 1);
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    color: #fff;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 14px 60px 14px 19px;
+  }
+  
+  .logo {
+    display: flex;
+    gap: 40px 56px;
+    white-space: nowrap;
+    margin: auto 0;
+    font: 700 28px Roboto Mono, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  
+  .logoIcon {
+    aspect-ratio: 1.07;
+    object-fit: contain;
+    width: 30px;
+    border-radius: 10px;
+    margin: auto 0;
+  }
+  
+  .brandWrapper {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .brandIcon {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 35px;
+  }
+  
+  .userProfile {
+    display: flex;
+    gap: 9px;
+    font-family: Inter, sans-serif;
+  }
+  
+  .avatar {
+    aspect-ratio: 0.97;
+    object-fit: contain;
+    width: 38px;
+    border-radius: 200px;
+    margin: auto 0;
+  }
+  
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userName {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .userRole {
+    font-size: 15px;
+    font-weight: 400;
+    align-self: start;
+  }
+  
+  @media (max-width: 991px) {
+    .calendarContainer {
+      max-width: 100%;
+      padding-bottom: 100px;
+    }
+    
+    .header {
+      max-width: 100%;
+      padding-right: 20px;
+    }
+    
+    .logo {
+      white-space: initial;
+    }
+    
+    .brandWrapper {
+      white-space: initial;
+    }
+  }
