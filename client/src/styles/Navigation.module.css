@@ -1,0 +1,43 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .navLink {
+    color: #000;
+    font: 20px 'Roboto Mono', monospace;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .navLink:hover {
+    text-decoration: underline;
+  }
+  
+  .loginButton {
+    border-radius: 10px;
+    background-color: #66D8B1;
+    color: #F3F3F3;
+    padding: 15px;
+  }
+
+  .loginButton:hover {
+    border-radius: 10px;
+    background-color: #8EC8AE;
+    color: #F3F3F3;
+    padding: 15px;
+  }
+  
+  @media (max-width: 991px) {
+    .navigation {
+      gap: 40px;
+    }
+  
+    .loginButton {
+      padding: 0 20px;
+    }
+  }

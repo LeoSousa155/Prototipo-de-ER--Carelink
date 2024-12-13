@@ -2,12 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { LoginForm } from './LoginForm';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
+//pages
+import { LoginForm } from './pages/LoginForm';
+import { LandingPage } from './pages/LandingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LoginForm />
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />}/>
+        <Route path="/login" element={<LoginForm />}/>
+      </Routes>  
+    </Router>      
   </React.StrictMode>
 );
 
@@ -15,3 +25,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+  
