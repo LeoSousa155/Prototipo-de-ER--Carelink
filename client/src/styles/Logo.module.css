@@ -1,0 +1,32 @@
+.logoWrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .logoImage {
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 50px;
+  }
+  
+  .logoText {
+    color: #66D8B1;
+    font: 700 40px 'Roboto Mono', monospace;
+  }
+  
+  @media (max-width: 991px) {
+    .logoWrapper {
+      flex-direction: column;
+    }
+  
+    .logoImage {
+      margin-top: 24px;
+      color: white;
+    }
+  
+    .logoText {
+      font-size: 40px;
+      margin-top: 40px;
+    }
+  }

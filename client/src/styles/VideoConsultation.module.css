@@ -1,0 +1,30 @@
+.consultationSection {
+    border-radius: 10px;
+    background-color: #66D8B1;
+    width: 80vw;
+    max-width: 1113px;
+    text-align: center;
+    padding: 50px 80px 38px;
+    margin-top: 77px;
+  }
+  
+.consultationTitle {
+  color: #fff;
+  font: 500 40px 'Roboto Mono', monospace;
+  margin: 0 0 39px;
+}
+
+.consultationDescription {
+  color: #fff;
+  font: 400 32px 'Roboto Mono', monospace;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .consultationSection {
+    margin-top: 40px;
+    padding: 100px 20px 0;
+  }
+}
+
+

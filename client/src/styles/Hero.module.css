@@ -1,0 +1,27 @@
+.heroSection {
+    text-align: center;
+    margin-top: 112px;
+  }
+  
+  .heroTitle {
+    color: #66D8B1;
+    font: 700 64px 'Roboto Mono', monospace;
+    margin: 0 0 45px;
+  }
+  
+  .heroSubtitle {
+    color: #8EC8AE;
+    font: 300 40px 'Roboto Mono', monospace;
+    margin: 0;
+  }
+  
+  @media (max-width: 991px) {
+    .heroSection {
+      margin-top: 40px;
+    }
+  
+    .heroTitle {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+  }

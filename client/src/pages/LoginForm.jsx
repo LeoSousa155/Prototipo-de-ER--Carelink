@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputField } from './components/InputField';
-import styles from './LoginForm.module.css';
+import { InputField } from '../components/InputField';
+import styles from '../styles/LoginForm.module.css';
 
 export const LoginForm = () => {
   const handleSubmit = async (e) => {
