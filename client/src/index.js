@@ -18,6 +18,8 @@ root.render(
         <Route path="/" element={<LandingPage />}/>
         <Route path="/login" element={<LoginForm />}/>
         <Route path="/register" element={<RegisterForm />}/>
+        <Route path="/doctor/home" element={<LandingPage />}/>
+        <Route path="/patient/home" element={<LandingPage />}/>
       </Routes>  
     </Router>      
   </React.StrictMode>

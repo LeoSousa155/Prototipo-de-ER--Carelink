@@ -3,9 +3,8 @@
 const { DatabaseSync } = require('node:sqlite');
 const database = new DatabaseSync('carelink.sqlite');
 
-
+//criação das tabelas
 function createDB() {
-    // Execute SQL statements from strings.
     database.exec(`
     CREATE TABLE IF NOT EXISTS Person(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -44,6 +43,10 @@ function createDB() {
     `);
 }
 
+/*
+    Funções de inserção de dados
+*/
+
 function insertNewPatient(name, age, password) {
     const insertPerson  = database.prepare(`INSERT INTO Person (name, age, password) VALUES (?, ?, ?) RETURNING id`);
     const result        = insertPerson.get(name, age, password);
@@ -66,14 +69,18 @@ function insertNewEvent(subject, day, month, pessoa_id) {
 }
 
 
+/*
+    Funções de pesquisa de dados
+*/
+
 function searchPatientByID(id) {
-    const query = database.prepare(`SELECT * FROM Person WHERE id = ?`);
+    const query = database.prepare(`SELECT * FROM Patient WHERE id = ?`);
     return query.get(id);
 }
 
 
 function searchDoctorByID(id) {
-    const query = database.prepare(`SELECT * FROM Person WHERE id = ?`);
+    const query = database.prepare(`SELECT * FROM Doctor WHERE id = ?`);
     return query.get(id);
 }
 
@@ -83,16 +90,9 @@ function searchEventByID(id) {
     return query.get(id);    
 }
 
-function doesNameExist(name) {
-    //returns a boolean if the name exists in the table
-    const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
-    const nameInTable = query.get(name);
-    return nameInTable != undefined;
-}
-
 function searchPersonByName(name) {
     //returns a boolean if the name exists in the table
-    query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
+    const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
     return query.get(name);
 }
 
@@ -112,16 +112,35 @@ function getAllDataEvent(person_id) {
 }
 
 
+/*
+    Funções de verificação de dados
+*/
+
+
+function doesNameExist(name) {
+    //returns a boolean if the name exists in the table
+    const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
+    const nameInTable = query.get(name);
+    return nameInTable != undefined;
+}
+
+
+
+
 //export funcions
 module.exports = {
     createDB,
+
     insertNewPatient,
     insertNewDoctor,
     insertNewEvent,
+
     searchPatientByID,
     searchDoctorByID,
     searchEventByID,
-    doesNameExist
+    searchPersonByName,
+    
+    doesNameExist,
 };
 
 //este código é executado apenas quando o ficheiro é executado diretamente

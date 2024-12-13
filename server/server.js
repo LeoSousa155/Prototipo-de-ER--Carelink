@@ -45,8 +45,26 @@ app.post("/register", (req,res) => {
 
 
 app.post('/login', (req, res) => {
-  console.log('Request Body:', req.fields);
-  res.sendStatus(200);
+  const formData = req.fields;
+  console.log('Request Body:', formData);
+
+  const person = db.searchPersonByName(formData.fullName);
+
+  if(person == undefined) {
+    res.sendStatus(404);
+  }
+
+  if(person.password != formData.password) {
+    res.sendStatus(401);
+  }
+
+  if(db.searchDoctorByID(person.id) != undefined) {
+    console.log("Redirecionando para a página do paciente");
+    res.json({ path: "/patient/home"});
+  } else {
+    console.log("Redirecionando para a página do médico");
+    res.json({ path: "/doctor/home"});
+  }
 });
 
 const PORT = 5000;

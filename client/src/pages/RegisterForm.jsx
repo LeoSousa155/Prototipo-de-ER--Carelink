@@ -27,6 +27,8 @@ export const RegisterForm = () => {
       // Check the server response
       if (response.ok) {
         navigate("/login");
+      } else if(response.status == 409) {
+        alert("Nome já existente");
       } else {
         console.error('Error submitting form:', response.statusText);
       }
