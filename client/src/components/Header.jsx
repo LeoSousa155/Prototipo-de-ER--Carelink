@@ -34,13 +34,13 @@ export function Header() {
         <div className={styles.userProfile}>
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/9a00d861cdaef3d5f811b828122b8d77d2e1225b7c3c5a43685bb53e4d663e29?placeholderIfAbsent=true&apiKey=15bfb221e8294fd6942889c3ffb66922"
+            src="https://cdn-icons-png.freepik.com/128/10015/10015419.png"
             className={styles.profileImage}
-            alt="Profile picture of Dora the explorer"
+            alt="Patient"
           />
           <div className={styles.userInfo}>
-            <div className={styles.userName}>Dora the explorer</div>
-            <div className={styles.userRole}>Patient</div>
+            <div className={styles.userName}>Paciente123</div>
+            <div className={styles.userRole}>Patiente</div>
           </div>
         </div>
       </header>
