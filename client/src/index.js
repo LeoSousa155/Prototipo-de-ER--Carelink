@@ -30,7 +30,7 @@ root.render(
         {/*testing routes*/}
         <Route path="/calendar" element={<CalendarLayout />}/>
         <Route path="/settings" element={<SettingsPage />}/>
-        <Route path="/careplan" element={<CarePlanPage />}/>
+        <Route path="/health-plan" element={<CarePlanPage />}/>
 
       </Routes>  
     </Router>      
