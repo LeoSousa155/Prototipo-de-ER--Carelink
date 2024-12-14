@@ -13,12 +13,11 @@
   
   .content {
     display: flex;
-    margin-top: 93px;
+    margin: 93px auto;
     flex-direction: column;
     font-family: Inter, sans-serif;
     color: rgba(0, 0, 0, 1);
     font-weight: 500;
-    margin-left: 400px;
   }
   
   
