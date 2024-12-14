@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginForm } from './pages/LoginForm';
 import { RegisterForm} from './pages/RegisterForm';
 import { LandingPage } from './pages/LandingPage';
-import { SettingsPage } from './pages/SettingsPage';
+import { ProfilePage } from './pages/ProfilePage';
 import { CalendarLayout } from './pages/CalendarLayout';
 import { CarePlanPage} from './pages/CarePlanPage';
 
@@ -23,13 +23,13 @@ root.render(
         <Route path="/" element={<LandingPage />}/>
         <Route path="/login" element={<LoginForm />}/>
         <Route path="/register" element={<RegisterForm />}/>
+        <Route path="/profile" element={<ProfilePage />}/>
         {/*doctor routes*/}
         <Route path="/doctor/home" element={<LandingPage />}/>
         {/*patient routes*/}
         <Route path="/patient/home" element={<LandingPage />}/>
         {/*testing routes*/}
         <Route path="/calendar" element={<CalendarLayout />}/>
-        <Route path="/settings" element={<SettingsPage />}/>
         <Route path="/health-plan" element={<CarePlanPage />}/>
 
       </Routes>  

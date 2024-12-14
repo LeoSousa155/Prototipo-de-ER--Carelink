@@ -1,18 +1,15 @@
 import React from 'react';
 import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
 import { PersonalDetailsForm } from '../components/PersonalDetailsForm';
-import styles from '../styles/SettingsPage.module.css';
+import styles from '../styles/ProfilePage.module.css';
 
-export function SettingsPage() {
+export function ProfilePage() {
   return (
     <div className={styles.settingsPage}>
       <div className={styles.pageWrapper}>
-        <Header />
+      < Header />
         <div className={styles.contentContainer}>
           <div className={styles.layout}>
-            <div className={styles.sidebarColumn}>
-            </div>
             <div className={styles.mainColumn}>
               <PersonalDetailsForm />
             </div>

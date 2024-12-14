@@ -25,13 +25,9 @@
     gap: 20px;
   }
   
-  .sidebarColumn {
-    width: 34%;
-  }
-  
   .mainColumn {
-    width: 66%;
-    margin-left: 20px;
+    width: 50%;
+    margin: 0px auto;
   }
   
   @media (max-width: 991px) {
