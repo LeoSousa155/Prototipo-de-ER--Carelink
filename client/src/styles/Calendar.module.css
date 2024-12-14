@@ -42,8 +42,9 @@
   
   .calendarGrid {
     display: flex;
-    margin-top: -134px;
+    margin-top: -120px;
     min-height: 526px;
+    margin-left: 300px;
     flex-direction: column;
     justify-content: start;
   }

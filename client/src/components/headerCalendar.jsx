@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../CalendarLayout.module.css';
+import styles from '../styles/CalendarLayout.module.css';
 
 export const Header = () => {
   return (

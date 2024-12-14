@@ -23,6 +23,9 @@ export function Navigation() {
             if (item.text === 'Login') {
               navigate('/login'); // Add navigation conditionally
             }
+//            if(item.text === 'Calendar'){
+//              navigate('/calendar');
+//            }
           }}
         >
           {item.text}

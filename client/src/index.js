@@ -10,7 +10,7 @@ import { LoginForm } from './pages/LoginForm';
 import { RegisterForm} from './pages/RegisterForm';
 import { LandingPage } from './pages/LandingPage';
 import { SettingsPage } from './pages/SettingsPage';
-import { Calendar } from './pages/calendar';
+import { CalendarLayout } from './pages/calendarLayout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -26,7 +26,7 @@ root.render(
         {/*patient routes*/}
         <Route path="/patient/home" element={<LandingPage />}/>
         {/*testing routes*/}
-        <Route path="/calendar" element={<Calendar />}/>
+        <Route path="/calendar" element={<CalendarLayout />}/>
         <Route path="/settings" element={<SettingsPage />}/>
       </Routes>  
     </Router>      
