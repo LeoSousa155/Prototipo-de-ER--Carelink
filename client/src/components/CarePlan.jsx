@@ -2,9 +2,6 @@ import React from 'react';
 import { Sidebar } from '../components/sidebarPlan';
 import styles from '../styles/CarePlan.module.css';
 
-app.get()
-
-
 
 export function CarePlan() {
   return (
