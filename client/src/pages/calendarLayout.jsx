@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../components/headerCalendar';
-import { Calendar } from '../components/Calendar';
+import { Calendar } from '../pages/calendar';
 import { Sidebar } from '../components/Sidebar';
 import styles from '../styles/CalendarLayout.module.css';
 

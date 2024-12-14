@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from './headerCalendar';
-import { CalendarGrid } from './calendarGrid';
+import { CalendarGrid } from './CalendarGrid';
 
 import styles from '../styles/Calendar.module.css';
 
