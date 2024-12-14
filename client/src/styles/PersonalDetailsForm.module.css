@@ -48,13 +48,19 @@
 }
 
 .editButton {
-  background-color: rgb(217, 217, 217);
+  background-color: #66D8B1;
+  color: white;
+  border-radius: 5px;
   margin: 71px auto 50px auto; /* Centers button horizontally with auto margin */
   padding: 12px 42px;
   width: 188px; /* Set the desired width */
   border: none;
   cursor: pointer;
   font: inherit;
+}
+
+.editButton:hover {
+  background-color:#4da687;
 }
 
 @media (max-width: 991px) {
