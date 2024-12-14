@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from './components/Header';
-import { CalendarGrid } from './components/CalendarGrid';
-import styles from './Calendar.module.css';
+import { Header } from '../components/Header';
+import { CalendarGrid } from '../components/CalendarGrid';
+import styles from '../styles/Calendar.module.css';
 
 export const Calendar = () => {
   return (

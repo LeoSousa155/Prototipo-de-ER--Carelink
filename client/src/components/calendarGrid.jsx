@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Calendar.module.css';
+import styles from '../styles/Calendar.module.css';
 
 const WEEKDAYS = ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO'];
 const DAYS = Array.from({ length: 31 }, (_, i) => i + 1);
