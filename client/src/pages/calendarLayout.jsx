@@ -1,7 +1,6 @@
-import React from 'react';
-import { Header } from '../components/headerCalendar';
-import { Calendar } from '../pages/calendar';
-import { Sidebar } from '../components/Sidebar';
+import React from 'react';  // Ensure React is imported
+import { Header } from '../components/Header';  // Import components
+import { Calendar } from '../components/Calendar';
 import styles from '../styles/CalendarLayout.module.css';
 
 export const CalendarLayout = () => {
@@ -9,7 +8,6 @@ export const CalendarLayout = () => {
     <div className={styles.calendarContainer}>
       <Header />
       <Calendar />
-      <Sidebar />
     </div>
   );
 };

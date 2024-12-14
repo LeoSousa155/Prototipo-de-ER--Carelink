@@ -10,7 +10,7 @@ import { LoginForm } from './pages/LoginForm';
 import { RegisterForm} from './pages/RegisterForm';
 import { LandingPage } from './pages/LandingPage';
 import { SettingsPage } from './pages/SettingsPage';
-import { CalendarLayout } from './pages/calendarLayout';
+import { CalendarLayout } from './pages/CalendarLayout';
 import { CarePlanPage} from './pages/CarePlanPage';
 
 
