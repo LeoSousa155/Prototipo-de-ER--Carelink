@@ -1,106 +1,92 @@
+/* Sidebar Base */
 .sidebar {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    display: flex;
-    width: 40px;
-    flex-direction: column;
-    color: #000;
-    margin: 0 auto;
-    font: 400 18px Inter, sans-serif;
-    transition: width 0.3s ease;
-  }
-  
-  .sidebar.expanded {
-    width: 200px;
-  }
-  
-  .sidebarContainer {
-    background-color: #dcf6ed;
-    display: flex;
-    gap: 20px;
-    justify-content: flex-start;
-    padding: 37px 48px 37px 19px;
-    transition: all 0.3s ease;
-  }
+  position: fixed; /* Keeps it anchored to the viewport */
+  top: 68px; /* Offset from the top of the viewport */
+  left: 0;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  width: 60px; /* Initial width */
+  height: calc(100vh - 68px); /* Full viewport height minus top offset */
+  color: #000;
+  font: 400 18px Inter, sans-serif;
+  background-color: #dcf6ed;
+  transition: width 0.3s ease, background-color 0.3s ease; /* Smooth expansion */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  z-index: 10; /* Ensure sidebar is above other content */
+}
 
-  .sidebarContainer:hover {
-    background-color: #b1ffe4;
-  }
-  
-  
-  .sidebarIcon {
-    aspect-ratio: 0.05;
-    object-fit: contain;
-    object-position: center;
-    width: 40px;
-    align-self: start;
-  }
-  
-  .navigationContainer {
-    display: flex;
-    margin-top: 4px;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-  }
+/* When sidebar is expanded */
+.sidebar.expanded {
+  width: 200px; /* Expanded width */
+}
 
- 
+/* Sidebar Container */
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* Fill the entire sidebar */
+  justify-content: space-between; /* Push navigation to top, log out to bottom */
+  padding: 37px 19px 0; /* Simplified padding */
+  overflow-y: auto; /* Allow scrolling if content overflows vertically */
+  overflow-x: hidden; /* Prevent horizontal scrolling for child elements */
+}
+
+/* Navigation Container */
+.navigationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  gap: 15px; /* Space between navigation items */
+}
+
+/* Sidebar Items */
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  width: 100%; /* Fit the sidebar's width */
+  padding: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebarItem:hover {
+  background-color: rgba(255, 255, 255, 0.526); /* Subtle hover effect */
+}
+
+.itemIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Prevent shrinking of icons */
+}
+
+.itemText {
+  opacity: 0;
+  transition: opacity 0.2s ease; /* Smooth text visibility */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden;
+}
+
+.expanded .itemText {
+  opacity: 1; /* Show text when expanded */
+}
+
+/* Log Out Button */
+.logOut {
+  align-self: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .sidebarContainer,
+  .itemText,
   .sidebarItem {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-    outline: none;
-    width: 100%;
+    transition: none; /* Disable transitions for users preferring reduced motion */
   }
-
-  .sidebarItem:hover {
-    color: white;
-  }
-  
-  .itemIcon {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
-
-  
-  .itemText {
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    white-space: nowrap;
-  }
-  
-  .expanded .itemText {
-    opacity: 1;
-  }
-  
-  .conversations {
-    margin-top: 49px;
-  }
-  
-  .healthPlan {
-    margin-top: 53px;
-  }
-  
-  .profile {
-    margin-top: 45px;
-  }
-  
-  .logOut {
-    margin-top: 651px;
-  }
-  
-  .sidebarItem:focus-visible {
-    outline: 2px solid #000;
-    outline-offset: 2px;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .sidebar,
-    .sidebarContainer,
-    .itemText {
-      transition: none;
-    }
-  }
+}

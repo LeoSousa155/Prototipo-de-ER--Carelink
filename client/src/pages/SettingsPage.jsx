@@ -12,7 +12,6 @@ export function SettingsPage() {
         <div className={styles.contentContainer}>
           <div className={styles.layout}>
             <div className={styles.sidebarColumn}>
-              <Sidebar />
             </div>
             <div className={styles.mainColumn}>
               <PersonalDetailsForm />
