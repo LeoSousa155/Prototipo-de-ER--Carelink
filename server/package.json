@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test_db": "node --experimental-sqlite db.js",
-    "start": "node server.js",
+    "start": "node --experimental-sqlite server.js",
     "dev": "node --inspect --watch --experimental-sqlite server.js"
   },
   "keywords": [],
