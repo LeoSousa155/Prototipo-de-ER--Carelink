@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { CalendarGrid } from './calendarGrid';
+import React from 'react';
+import { CalendarGrid } from './CalendarGrid';
 import styles from '../styles/Calendar.module.css';
 
 export const Calendar = () => {

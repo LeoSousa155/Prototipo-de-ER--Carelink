@@ -43,7 +43,7 @@ app.post("/register", (req,res) => {
     return;
   }
 
-  if(formData.isDoctor === 'on') {
+  if(formData.isDoctor === 'true') {
     db.insertNewDoctor(formData.fullName, null, formData.password);
   } else {
     db.insertNewPatient(formData.fullName, null, formData.password);
@@ -66,7 +66,7 @@ app.post('/login', (req, res) => {
     res.sendStatus(401);
   }
 
-  if(db.searchDoctorByID(person.id) != undefined) {
+  if(db.searchDoctorByID(person.id) == undefined) {
     console.log("Redirecionando para a página do paciente");
     res.json({ path: "/doctor/home"});
   } else {
