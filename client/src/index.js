@@ -12,6 +12,8 @@ import { LandingPage } from './pages/LandingPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { CalendarLayout } from './pages/CalendarLayout';
 import { CarePlanPage} from './pages/CarePlanPage';
+import { ChatLayoutPatient } from './pages/CommunicationPatient';
+import { ChatLayoutDoctor } from './pages/CommunicationDoctor';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,8 +28,10 @@ root.render(
         <Route path="/profile" element={<ProfilePage />}/>
         {/*doctor routes*/}
         <Route path="/doctor/home" element={<LandingPage />}/>
+        <Route path="/doctor/communication" element={<ChatLayoutDoctor />}/>
         {/*patient routes*/}
         <Route path="/patient/home" element={<LandingPage />}/>
+        <Route path="/patient/communication" element={<ChatLayoutPatient />}/>
         {/*testing routes*/}
         <Route path="/calendar" element={<CalendarLayout />}/>
         <Route path="/health-plan" element={<CarePlanPage />}/>

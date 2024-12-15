@@ -1,134 +1,19 @@
 .layout {
-    background-color: #fff8f8;
+    background-color: #ffffff;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-  
-  .header {
-    background-color: #66d8b1;
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    color: #fff;
-    text-align: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 14px 62px 14px 19px;
-  }
-  
-  .brandSection {
-    display: flex;
-    gap: 40px 56px;
-    white-space: nowrap;
-    margin: auto 0;
-    font: 700 28px 'Roboto Mono', -apple-system, Roboto, Helvetica, sans-serif;
-  }
-  
-  .logo {
-    aspect-ratio: 1.07;
-    object-fit: contain;
-    width: 30px;
-    border-radius: 10px;
-    margin: auto 0;
-  }
-  
-  .brandWrapper {
-    display: flex;
-    gap: 13px;
-  }
-  
-  .brandIcon {
-    aspect-ratio: 1;
-    object-fit: contain;
-    width: 35px;
-  }
-  
-  .brandName {
-    flex-basis: auto;
-    margin: auto 0;
-  }
-  
-  .userProfile {
-    display: flex;
-    gap: 9px;
-    font-family: Inter, sans-serif;
-  }
-  
-  .avatar {
-    aspect-ratio: 0.97;
-    object-fit: contain;
-    width: 38px;
-    border-radius: 200px;
-    margin: auto 0;
-  }
-  
-  .userInfo {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .userName {
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  .userRole {
-    font-size: 15px;
-    font-weight: 400;
-    align-self: start;
+    flex-direction: row;
   }
   
   .mainContent {
-    z-index: 10;
     display: flex;
-    margin-top: -5px;
-    width: 100%;
-    flex-wrap: wrap;
+    flex-direction: row;
+    /*overflow: hidden;*/
+    height: calc(100vh - 60px);
+    padding-top: 60px;
+    padding-left: 60px;
+    /*width: 100%;
+    height: 100%;
+    /*align-items: stretch;*/
+
   }
   
-  .sidebar {
-    display: flex;
-    margin-top: 6px;
-    flex-direction: column;
-  }
-  
-  .sidebarIcon {
-    border-radius: 10px;
-    background-color: #dcf6ed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 36px 13px;
-  }
-  
-  .sidebarImage {
-    aspect-ratio: 0.04;
-    object-fit: contain;
-    width: 32px;
-  }
-  
-  @media (max-width: 991px) {
-    .header {
-      max-width: 100%;
-      padding-right: 20px;
-    }
-    
-    .brandSection {
-      white-space: initial;
-    }
-    
-    .brandWrapper {
-      white-space: initial;
-    }
-    
-    .mainContent {
-      max-width: 100%;
-    }
-    
-    .sidebar,
-    .sidebarIcon,
-    .sidebarImage {
-      display: none;
-    }
-  }
