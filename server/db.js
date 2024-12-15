@@ -92,6 +92,7 @@ function searchEventByID(id) {
 
 function searchPersonByName(name) {
     //returns a boolean if the name exists in the table
+    //eu quando espalho informação falsa: HEHEHEHAW
     const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
     return query.get(name);
 }
@@ -106,9 +107,9 @@ function getAllData() {
 
 function getAllDataEvent(person_id) {
     // Execute a SQL statement.
-    const query = database.prepare(`SELECT * FROM Event WHERE person_id = ? GROUP BY month, day `);
-    query.run(person_id);
+    const query = database.prepare(`SELECT subject,day FROM Event WHERE person_id = ? GROUP BY month, day `);
     console.log(query.all(person_id));
+    return query.all(person_id);
 }
 
 
@@ -139,7 +140,8 @@ module.exports = {
     searchDoctorByID,
     searchEventByID,
     searchPersonByName,
-    
+    getAllDataEvent,
+
     doesNameExist,
 };
 
@@ -155,4 +157,5 @@ function testDB() {
     insertNewPatient("Maria", 30, "5678");
     insertNewPatient("Pedro", 35, "9012");
     getAllData();
+    getAllDataEvent(1);
 }

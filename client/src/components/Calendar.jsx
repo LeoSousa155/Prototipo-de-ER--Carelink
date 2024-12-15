@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CalendarGrid } from './calendarGrid';
 import styles from '../styles/Calendar.module.css';
 
@@ -11,6 +11,7 @@ export const Calendar = () => {
         <button className={styles.nextMonth}>Proximo Mês</button>
       </div>
       <CalendarGrid />
+      {/*<button className={styles.button} onClick={}>Adicionar Evento</button>*/}
     </div>
   );
 };

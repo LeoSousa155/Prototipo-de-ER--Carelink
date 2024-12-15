@@ -18,11 +18,19 @@ app.use(cors());
 
 db.createDB();
 
+db.insertNewPatient('Pessoa', 27, 'password');
+db.insertNewEvent('Consulta com Doutor', 27, 9, 1);
+db.insertNewEvent('Analise de Sangue', 2, 9, 1);
+
 // Handle all other routes by sending back the React index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
+app.get('/dadosEvent',(req,res) => {
+  const response = db.getAllDataEvent(1);
+  res.json(response);
+})
 
 app.post("/register", (req,res) => {
   const formData = req.fields;
