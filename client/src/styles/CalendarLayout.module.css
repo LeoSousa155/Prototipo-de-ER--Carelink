@@ -2,7 +2,7 @@
     background: var(--Grays-White, #fff);
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
     width: 100%;
-    padding: 1px 0 221px;
+    padding: 1px 0 10px;
   }
   
   .header {

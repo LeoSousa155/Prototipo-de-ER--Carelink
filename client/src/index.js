@@ -11,6 +11,7 @@ import { RegisterForm} from './pages/RegisterForm';
 import { LandingPage } from './pages/LandingPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { CalendarLayout } from './pages/CalendarLayout';
+import { CalendarForm } from './pages/CalendarForm';
 import { CarePlanPage} from './pages/CarePlanPage';
 import { ChatLayoutPatient } from './pages/CommunicationPatient';
 import { ChatLayoutDoctor } from './pages/CommunicationDoctor';
@@ -25,15 +26,15 @@ root.render(
         <Route path="/" element={<LandingPage />}/>
         <Route path="/login" element={<LoginForm />}/>
         <Route path="/register" element={<RegisterForm />}/>
-        <Route path="/profile" element={<ProfilePage />}/>
         {/*doctor routes*/}
-        <Route path="/doctor/home" element={<LandingPage />}/>
+        <Route path="/doctor/profile" element={<ProfilePage />}/>
         <Route path="/doctor/communication" element={<ChatLayoutDoctor />}/>
         {/*patient routes*/}
-        <Route path="/patient/home" element={<LandingPage />}/>
+        <Route path="/patient/profile" element={<ProfilePage />}/>
         <Route path="/patient/communication" element={<ChatLayoutPatient />}/>
         {/*testing routes*/}
         <Route path="/calendar" element={<CalendarLayout />}/>
+        <Route path="/calendar/add-event" element={<CalendarForm />}/>
         <Route path="/health-plan" element={<CarePlanPage />}/>
 
       </Routes>  
