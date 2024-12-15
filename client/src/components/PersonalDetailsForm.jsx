@@ -17,7 +17,7 @@ export function PersonalDetailsForm() {
       </div>
 
       <div className={styles.formGroup}>
-        <label htmlFor="phone" className={styles.label}>Phone Number: </label>
+        <label htmlFor="phone" className={styles.label}>Phone Number:</label>
         <input
           type="tel"
           id="phone"

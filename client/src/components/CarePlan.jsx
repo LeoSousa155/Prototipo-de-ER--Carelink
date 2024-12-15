@@ -1,12 +1,10 @@
 import React from 'react';
-import { Sidebar } from '../components/Sidebar';
 import styles from '../styles/CarePlan.module.css';
 
 
 export function CarePlan() {
   return (
     <div className={styles.container}>
-      <Sidebar />
       <div className={styles.content}>
         <div className={styles.title}>
           Plano personalizado de Dora the explorer

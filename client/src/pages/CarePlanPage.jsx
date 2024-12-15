@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../components/headerPlan';
+import { Header } from '../components/Header';
 import { CarePlan } from '../components/CarePlan';
 import styles from '../styles/CarePlanPage.module.css';
 
