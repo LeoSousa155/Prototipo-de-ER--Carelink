@@ -17,11 +17,28 @@ export const CalendarGrid = () => {
           <div key={weekIndex} className={styles.headerRow}>
             {Array.from({ length: 7 }).map((_, dayIndex) => {
               const dayNumber = weekIndex * 7 + dayIndex + 1;
-              return (
-                <div key={dayIndex} className={styles.dateCell}>
-                  {dayNumber <= 31 ? dayNumber : ''}
-                </div>
-              );
+              if(dayNumber == 1){
+                return (
+                  <div key={dayIndex} className={styles.dateCell}><div className ={styles.eventIndicator}>Consulta com Doutor Gigarico</div>
+                    {dayNumber <= 31 ? dayNumber : ''}
+                  </div>
+                );
+              }
+              if(dayNumber == 15){
+                return (
+                  <div key={dayIndex} className={styles.dateCell}><div className ={styles.eventIndicator}>Analise de Sangue</div>
+                    {dayNumber <= 31 ? dayNumber : ''}
+                  </div>
+                );
+              }
+              else{
+                return (
+                  <div key={dayIndex} className={styles.dateCell}>
+                    {dayNumber <= 31 ? dayNumber : ''}
+                  </div>
+                );
+              }
+              
             })}
           </div>
         ))}

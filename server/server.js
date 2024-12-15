@@ -60,10 +60,10 @@ app.post('/login', (req, res) => {
 
   if(db.searchDoctorByID(person.id) != undefined) {
     console.log("Redirecionando para a página do paciente");
-    res.json({ path: "/patient/home"});
+    res.json({ path: "/doctor/home"});
   } else {
     console.log("Redirecionando para a página do médico");
-    res.json({ path: "/doctor/home"});
+    res.json({ path: "/patient/home"});
   }
 });
 

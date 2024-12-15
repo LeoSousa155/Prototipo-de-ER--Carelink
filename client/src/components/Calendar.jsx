@@ -11,9 +11,6 @@ export const Calendar = () => {
         <button className={styles.nextMonth}>Proximo Mês</button>
       </div>
       <CalendarGrid />
-      <div className={styles.eventIndicator}>Consulta com Doutor Mauricio Gigaricio</div>
-      <div className={styles.eventIndicator}>Teste de sangue</div>
-      <div className={styles.eventIndicator}>Check-Up</div>
     </div>
   );
 };
