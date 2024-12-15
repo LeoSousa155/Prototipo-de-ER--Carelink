@@ -11,6 +11,9 @@ export const RegisterForm = () => {
     const form = e.target;
     const formData = new FormData(form);
 
+    const isDoctor = !!formData.get('isDoctor').name; // Checks if a file name exists
+    formData.append('isDoctor', isDoctor);
+
 
     // Display the key/value pairs
     for (var pair of formData.entries())
@@ -69,9 +72,9 @@ export const RegisterForm = () => {
               placeholder="Senha"
             />
             <InputField
-              label="Medico"
+              label="Certificado Medico"
               id="isDoctor"
-              type="checkbox"
+              type="file"
             />
             
           <button type="submit" className={styles.submitButton}>
