@@ -36,7 +36,6 @@ root.render(
         <Route path="/calendar" element={<CalendarLayout />}/>
         <Route path="/calendar/add-event" element={<CalendarForm />}/>
         <Route path="/health-plan" element={<CarePlanPage />}/>
-
       </Routes>  
     </Router>      
   </React.StrictMode>

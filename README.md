@@ -15,4 +15,20 @@ A base de dados é `SQLite` e a biblioteca usada foi adicionada ao `Node 22.5.0`
 
 Ao executar o servidor a base de dados será criada com o nome `carelink.sqlite`
 
-Ao iniciar o servidor a base de dados encontrar-se-á vázia portanto será preciso registar alguns médicos e pacientes, para isso podem entrar na página `localhost:3000/register` e preencher o formulário, para inserir novos pacientes é preciso apenas nome completo e palavra passe, para inserir novos médicos é preciso também esses dados e adicionalmente um ficheiro para simular a licença médica.
+Ao iniciar o servidor a base de dados encontrar-se-á com 2 registos por padrão, um Doutor com nome `Doutor` e um paciente com nome `Paciente`, ambos tendo a palavra passe `password`. Para inserir novos pacientes basta entrar na página `localhost:3000/register`. É preciso apenas nome completo e palavra passe, para inserir novos médicos é preciso também esses dados e adicionalmente um ficheiro para simular a licença médica.
+
+
+### Navegação
+Ao logar com o Paciente ou Medico serão direcionados as páginas `patient/profile` ou `doctor/profile` mas ao navegar com a barra lateral e tentar aceder a estas páginas irá direcionar o utilizador a uma página em branco com caminho `profile`, devendo-se isto ao facto de não termos conseguido implementar a sessões para a aplicação saber se temos um paciente ou um médico autenticado. Isto também acontece com a página de comunicação.
+
+### lista de caminhos a funcionar
+- `/`
+- `/login`
+- `/register`
+- `/patient/profile`
+- `/doctor/profile`
+- `/patient/communication`
+- `/doctor/communication`
+- `/calendar`
+- `/calendar/add-event`
+- `/health-plan`
