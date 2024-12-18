@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../styles/Calendar.module.css';
+import styles from '../../styles/Calendar.module.css';
 
 const WEEKDAYS = ['DOMINGO', 'SEGUNDA', 'TERÇA', 'QUARTA', 'QUINTA', 'SEXTA', 'SÁBADO'];
 
-export const CalendarGrid = () => {
+export const CalendarGridDr = () => {
   const [dados, setDados] = useState([]); // State to store events
   const [erro, setErro] = useState(null); // State to store errors
   const [loading, setLoading] = useState(true);
@@ -82,7 +82,7 @@ export const CalendarGrid = () => {
       </div>
 
       {/* Render the "Adicionar Evento" button */}
-      <button className={styles.button} onClick={() => { navigate("/patient/calendar/add-event") }}>Adicionar Evento</button>
+      <button className={styles.button} onClick={() => { navigate("/calendar/add-event") }}>Adicionar Evento</button>
     </div>
   );
 };

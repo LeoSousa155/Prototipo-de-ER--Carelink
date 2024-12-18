@@ -74,13 +74,13 @@ function insertNewEvent(subject, day, month, pessoa_id) {
 */
 
 function searchPatientByID(id) {
-    const query = database.prepare(`SELECT * FROM Patient WHERE id = ?`);
+    const query = database.prepare(`SELECT * FROM Patient WHERE person_id = ?`);
     return query.get(id);
 }
 
 
 function searchDoctorByID(id) {
-    const query = database.prepare(`SELECT * FROM Doctor WHERE id = ?`);
+    const query = database.prepare(`SELECT * FROM Doctor WHERE person_id = ?`);
     return query.get(id);
 }
 
@@ -93,7 +93,7 @@ function searchEventByID(id) {
 function searchPersonByName(name) {
     //returns a boolean if the name exists in the table
     //eu quando espalho informação falsa: HEHEHEHAW
-    const query = database.prepare(`SELECT * FROM Person WHERE name = ?`);
+    const query = database.prepare('SELECT * FROM Person WHERE LOWER(name) = LOWER(?)');
     return query.get(name);
 }
 

@@ -20,16 +20,16 @@ export function ChatLayoutOld() {
   );
 }
 
-export function ChatLayoutDoctor() {
+export function ChatLayoutPatient() {
   // State to track the selected conversation
   const [selectedChat, setSelectedChat] = useState(null);
 
   // Sample data for conversations
   const conversations = [
-    { id: 1, name: "Tiago Oliveira", status: "Online", avatar: '/imagesChat/TiagoOliveira.jpg' },
-    { id: 2, name: "Joana Rodrigues", status: "Offline", avatar: '/imagesChat/JoanaRodrigues.jpeg'},
-    { id: 3, name: "Ricardo Almeida", status: "Online", avatar: '/imagesChat/RicardoAlmeida.jpg'},
-    { id: 4, name: "Maria Lopes", status: "Online", avatar: '/imagesChat/MariaLopes.jpg'},
+    { id: 1, name: "Dr. Maurício Gigarício", status: "Online", avatar: '/imagesChat/doctor1.jpeg' },
+    { id: 2, name: "Nurse Sarah", status: "Offline", avatar: '/imagesChat/Nurse1.jpg'},
+    { id: 3, name: "Dr. Person", status: "Online", avatar: '/imagesChat/Doctor2.jpg'},
+    { id: 4, name: "Dr. Smith", status: "Offline", avatar: '/imagesChat/Doctor4.jpeg'},
   ];
 
 

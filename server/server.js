@@ -15,6 +15,16 @@ app.use(formidable());
 app.use(express.json());
 app.use(cors());
 
+//make session
+
+const session = require('express-session');
+
+app.use(session({
+  secret: 'ER-session-key',
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 db.createDB();
 db.insertNewDoctor('Doutor', 30, 'password');
@@ -52,7 +62,7 @@ app.post("/register", (req,res) => {
 });
 
 
-app.post('/login', (req, res) => {
+/*app.post('/login', (req, res) => {
   const formData = req.fields;
   console.log('Request Body:', formData);
 
@@ -66,16 +76,80 @@ app.post('/login', (req, res) => {
     res.sendStatus(401);
   }
 
-  if(db.searchDoctorByID(person.id) == undefined) {
+  if(db.searchDoctorByID(person.id) == undefined){
+    console.log(db.searchDoctorByID(person.id));
     console.log("Redirecionando para a página do paciente");
+    req.session.user = {
+      username: person.id,
+      name: person.fullName,
+      role: 'patient'
+    };
+    console.log(req.session.user);
+    res.json({ path: "/patient/profile"});
+  } else {
+    req.session.user = {
+      username: person.id,
+      name: person.fullName,
+      role: 'doctor'
+    };
+    console.log("Redirecionando para a página do médico");
+    console.log(req.session.user);
     res.json({ path: "/doctor/profile"});
+  
+  }
+});*/
+
+app.post('/login', (req, res) => {
+  const formData = req.fields;
+  console.log('Request Body:', formData);
+
+  const person = db.searchPersonByName(formData.fullName);
+
+  if (person) {
+    console.log("Person object:");
+    console.log("Person ID:");
+    console.log("Person Name:");
+  }
+  
+
+  // If person is not found, send 404 and stop execution
+  if (person == undefined) {
+    console.log('Person not found');
+    return res.sendStatus(404);
+  }
+
+  // If passwords do not match, send 401 and stop execution
+  if (person.password != formData.password) {
+    console.log('Password mismatch');
+    return res.sendStatus(401);
+  }
+
+  // Check if the user is a doctor
+  const doctor = db.searchDoctorByID(person.id);
+  
+  if (doctor == undefined) {
+    console.log("Redirecionando para a página do paciente");
+    req.session.user = {
+      username: person.id,
+      name: person.name,
+      age: person.age,
+      role: 'patient'
+    };
+    console.log(req.session.user);
+    console.log('Person:' + person.id);
+    return res.json({ path: "/patient/profile" });  // Return to stop execution here
   } else {
     console.log("Redirecionando para a página do médico");
-    res.json({ path: "/patient/profile"});
+    req.session.user = {
+      username: person.id,
+      name: person.name,
+      age: person.age,
+      role: 'doctor'
+    };
+    console.log(req.session.user);
+    return res.json({ path: "/doctor/profile" });  // Return to stop execution here
   }
 });
-
-
 
 
 app.post("/calendar/add-event", (req,res) => {
@@ -95,9 +169,21 @@ app.post("/calendar/add-event", (req,res) => {
   console.log("Post Body: ", formData);
   const parsedDate = parseDate(formData.date);
 
-
   db.insertNewEvent(formData.subject, parsedDate.day, parsedDate.month, 1);
   res.json({ path: "/calendar"});
+});
+
+app.post('/logout', (req, res) => {
+  // Destroy the session to log the user out
+  req.session.destroy((err) => {
+    if (err) {
+      console.log('Error destroying session:', err);
+      return res.sendStatus(500);  // Internal Server Error if session destruction fails
+    }
+
+    // Redirect the user to the login page or another public page
+    res.json({ path: '/login' });
+  });
 });
 
 const PORT = 5000;

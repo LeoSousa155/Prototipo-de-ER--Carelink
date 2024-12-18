@@ -1,10 +1,10 @@
 import {React, useEffect } from 'react';
-import { InputField } from '../components/InputField';
-import styles from '../styles/CalendarForm.module.css';
+import { InputFieldDr } from '../../components/doctor/InputFieldDr';
+import styles from '../../styles/CalendarForm.module.css';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Header } from '../components/Header';
+import { HeaderDr } from '../../components/doctor/HeaderDr';
 
-export const CalendarForm = () => {
+export const CalendarFormDr = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Collect form data
@@ -18,7 +18,7 @@ export const CalendarForm = () => {
     }
     try {
       // Send the form data to the server
-      const response = await fetch('http://localhost:5000/patient/calendar/add-event', {
+      const response = await fetch('http://localhost:5000/doctor/calendar/add-event', {
         method: 'POST',
         body: formData,
       });
@@ -30,7 +30,7 @@ export const CalendarForm = () => {
         navigate(route.path);
       } 
       else if (response.status == 404 || response.status == 401) {
-        alert("Unable to complete request at this moment.");
+        alert("Unable to perform request at this moment.");
       } 
       else {
         console.error('Error submitting form:', response.statusText);
@@ -45,7 +45,7 @@ export const CalendarForm = () => {
 
   return (
     <main className={styles.loginContainer}>
-      <Header />
+      <HeaderDr />
       <div className={styles.formWrapper}>
         <div className={styles.contentWrapper}>
           <p className={styles.subtitle}>
@@ -53,12 +53,12 @@ export const CalendarForm = () => {
           </p>
           
           <form onSubmit={handleSubmit} className={styles.form}>
-            <InputField
+            <InputFieldDr
               label="Nome do evento"
               id="subject"
               placeholder="Evento"
             />
-            <InputField
+            <InputFieldDr
               label="Data do evento"
               id="date"
               type="date"
@@ -76,7 +76,7 @@ export const CalendarForm = () => {
           
           <p className={styles.signupText}>
             {" "}
-            <a onClick={()=> {navigate("/patient/calendar")}} className={styles.signupLink}>Voltar</a>
+            <a onClick={()=> {navigate("/doctor/calendar")}} className={styles.signupLink}>Voltar</a>
           </p>
         </div>
       </div>

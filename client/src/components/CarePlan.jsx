@@ -7,11 +7,11 @@ export function CarePlan() {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.title}>
-          Plano personalizado de Dora the explorer
+          Plano personalizado de Paciente123
           <br/>
         </div>
         <div className={styles.doctor}>
-          Doutor: Maurício Gigarício
+          Doutor: Maurício Santos
           <br />
         </div>
         <div className={styles.section}>
