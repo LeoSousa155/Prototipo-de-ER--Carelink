@@ -13,7 +13,7 @@ export function PersonalDetailsForm() {
           id="name"
           className={styles.input}
           aria-label="Enter your name"
-          value= "paciente123"
+          value= "Paciente123"
         />
       </div>
 
