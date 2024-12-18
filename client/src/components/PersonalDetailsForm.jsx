@@ -13,6 +13,7 @@ export function PersonalDetailsForm() {
           id="name"
           className={styles.input}
           aria-label="Enter your name"
+          value= "paciente123"
         />
       </div>
 
@@ -23,6 +24,7 @@ export function PersonalDetailsForm() {
           id="phone"
           className={styles.input}
           aria-label="Enter your phone number"
+          value="919724832"
         />
       </div>
 
@@ -33,6 +35,7 @@ export function PersonalDetailsForm() {
           id="email"
           className={styles.input}
           aria-label="Enter your email"
+          value="pacient@gmail.com"
         />
       </div>
 
@@ -43,6 +46,7 @@ export function PersonalDetailsForm() {
           id="address"
           className={styles.input}
           aria-label="Enter your address"
+          value="Funchal"
         />
       </div>
 
