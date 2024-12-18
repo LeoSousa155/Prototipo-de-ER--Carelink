@@ -21,7 +21,6 @@ export function PersonalDetailsFormDr() {
           defaultValue="Doutor123"
           className={styles.input}
           aria-label="Enter your name"
-          disabled={!isEditable}
         />
       </div>
 
@@ -33,7 +32,6 @@ export function PersonalDetailsFormDr() {
           defaultValue="123456789"
           className={styles.input}
           aria-label="Enter your phone number"
-          disabled={!isEditable}
         />
       </div>
 
@@ -45,7 +43,6 @@ export function PersonalDetailsFormDr() {
           defaultValue="doctor@gmail.com"
           className={styles.input}
           aria-label="Enter your email"
-          disabled={!isEditable}
         />
       </div>
 
@@ -57,7 +54,6 @@ export function PersonalDetailsFormDr() {
           defaultValue = "House"
           className={styles.input}
           aria-label="Enter your address"
-          disabled={!isEditable}
         />
       </div>
 

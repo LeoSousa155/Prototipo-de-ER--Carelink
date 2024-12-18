@@ -152,7 +152,7 @@ app.post('/login', (req, res) => {
 });
 
 
-app.post("/calendar/add-event", (req,res) => {
+app.post("/patient/calendar/add-event", (req,res) => {
     function parseDate(dateString) {
     // Split the input string by the "-" delimiter
     const [year, month, day] = dateString.split('-');
@@ -170,7 +170,29 @@ app.post("/calendar/add-event", (req,res) => {
   const parsedDate = parseDate(formData.date);
 
   db.insertNewEvent(formData.subject, parsedDate.day, parsedDate.month, 1);
-  res.json({ path: "/calendar"});
+  res.json({ path: "/patient/calendar"});
+});
+
+
+app.post("/doctor/calendar/add-event", (req,res) => {
+  function parseDate(dateString) {
+  // Split the input string by the "-" delimiter
+  const [year, month, day] = dateString.split('-');
+
+  // Convert the string values to integers (optional)
+  const parsedDay = parseInt(day, 10);
+  const parsedMonth = parseInt(month, 10);
+  const parsedYear = parseInt(year, 10);
+
+  return { day: parsedDay, month: parsedMonth, year: parsedYear };
+}
+
+const formData = req.fields;
+console.log("Post Body: ", formData);
+const parsedDate = parseDate(formData.date);
+
+db.insertNewEvent(formData.subject, parsedDate.day, parsedDate.month, 1);
+res.json({ path: "/doctor/calendar"});
 });
 
 app.post('/logout', (req, res) => {
